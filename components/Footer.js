@@ -10,9 +10,14 @@ const Footer = () => {
         <Link href="https://github.com/Yokuny">yokuny</Link>
       </span>
       <span>
-        <Image width={18} height={18} src={"/github.svg"} alt="github logo" />
-        <Link href="https://github.com/Yokuny/shortly">front-end</Link>
-        <Link href="https://github.com/Yokuny/projeto17-shortly">back-end</Link>
+        <Link href="https://www.linkedin.com/in/yokuny/">
+          <Image width={18} height={18} src={"/linkedin.svg"} alt="linkdin logo" />
+        </Link>
+        <Link href="https://github.com/Yokuny">
+          <Image width={18} height={18} src={"/github.svg"} alt="github logo" />
+        </Link>
+        <Link href="https://github.com/Yokuny/projeto18-freela-front">front-end</Link>
+        <Link href="https://github.com/Yokuny/projeto18-freela-back">back-end</Link>
       </span>
     </footer>
   );

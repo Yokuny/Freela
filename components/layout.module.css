@@ -1,40 +1,49 @@
-  .header,
-  .footer,
-  .title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .header span{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .header span p:before{
-    content:"✈️      ";
-    white-space: pre;
-      
-  }
+.header,
+.footer{
+  height: 50px;
+  border: 1px solid black;
+  border-radius: var(--border-radius);
 
-  .footer {
-    margin-top: 5vh;
-  }
-  .footer span {
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    font-family: var(--font-mono);
-  }
-  .footer span a,
-  .header a{
-    padding: 5px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease-in;
-  }
-  .footer span a:hover,
-  .header a:hover{
-    background-color: black;
-    color: white;
-    text-decoration: underline;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+/* header */
+.header span{
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header span p:first-child{
+  font-size: 1.4rem;
+}
+.header span p:last-child{
+  font-size: 1rem;
+}
+/* footer */
+.footer {
+  margin-top: 5vh;
+}
+.footer span {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: var(--font-mono);
+}
+.footer span a,
+.header a{
+  display: flex;
+  align-items: center;
+  
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.footer span a:hover,
+.header a:hover{
+  border: 1px solid black;
+  text-decoration: underline;
+}
