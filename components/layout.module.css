@@ -1,0 +1,40 @@
+  .header,
+  .footer,
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header span{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header span p:before{
+    content:"✈️      ";
+    white-space: pre;
+      
+  }
+
+  .footer {
+    margin-top: 5vh;
+  }
+  .footer span {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+  }
+  .footer span a,
+  .header a{
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in;
+  }
+  .footer span a:hover,
+  .header a:hover{
+    background-color: black;
+    color: white;
+    text-decoration: underline;
+  }
