@@ -7,16 +7,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
-  background-color: #fff;
+
   position: fixed;
   z-index: 100;
+
+  transition: background .3s ease, box-shadow .3s ease;
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
+  backdrop-filter: saturate(180%) blur(5px);
+  background: #ffffffcc;
 }
 .header{
-  top: 2vh;
+  top: 1vh;
 }
 .footer {
-  bottom: 2vh;
+  bottom: 1vh;
 }
 
 /* header */

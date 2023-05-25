@@ -1,15 +1,15 @@
 .destino{
   width: 100%;
   display: grid;
-  grid-template-columns: .28fr .72fr;
+  grid-template-columns: .2fr .8fr;
   grid-template-areas: "filtro content";
   gap: 10px;
 }
 .destino navibar,
 .destino main{
   width: 100%;
-  border-radius: var(--border-radius);
   padding: 10px;
+  border-radius: var(--border-radius);
 }
 .destino navibar{
   border: 1px solid black;
@@ -18,17 +18,18 @@
 }
 .destino main{
   grid-area: "content";
+  background-color: aqua;
+  width: 100%;
 }
 .destino main div{
   margin-top: 1vh;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  background-color: antiquewhite  ;
 }
 /* cards */
 .destino .card{
-  width: 190px;
-  padding: 10px;
   border: 1px solid black;
   border-radius: var(--border-radius);
 
