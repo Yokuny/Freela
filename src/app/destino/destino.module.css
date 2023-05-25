@@ -1,0 +1,43 @@
+.destino{
+  width: 100%;
+  display: grid;
+  grid-template-columns: .28fr .72fr;
+  grid-template-areas: "filtro content";
+  gap: 10px;
+}
+.destino navibar,
+.destino main{
+  width: 100%;
+  border-radius: var(--border-radius);
+  padding: 10px;
+}
+.destino navibar{
+  border: 1px solid black;
+  background-color: #fff;
+  grid-area: "filtro";
+}
+.destino main{
+  grid-area: "content";
+}
+.destino main div{
+  margin-top: 1vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+/* cards */
+.destino .card{
+  width: 190px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: var(--border-radius);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+}
+.destino .card > div{
+  display: flex;
+  flex-direction: column;
+}
