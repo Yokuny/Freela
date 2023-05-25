@@ -14,13 +14,13 @@ export default function Home() {
       </div>
       <div className={styles.cards}>
         <div>
-          <p>Escolha a cidade que deseja visitar</p>
+          <p>Explore destinos e escolha a cidade que mais deseja visitar</p>
         </div>
         <div>
-          <p>Veja as passagens disponiveis, com preço e data</p>
+          <p>Tenha passagens disponiveis, com preço e data a sua escolha</p>
         </div>
         <div>
-          <p>Veja todos os lugares aonde você pode se hospedar e todo o conforto que eles oferecem!</p>
+          <p>Encontre acomodações incríveis com o máximo de conforto!</p>
         </div>
       </div>
     </main>
