@@ -1,0 +1,10 @@
+.details{
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.details span{
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,9 +1,18 @@
+"use client";
 import Image from "next/image";
-import style from "./destino.module.css";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import style from "./card.module.css";
 
-const CityCard = ({ imgSrc }) => {
+const Card = ({ imgSrc }) => {
+  const [cityName, setCityName] = useState("Venda Nova do Imigrante");
+  const router = useRouter();
+
+  const ticketInfo = (city) => {
+    router.push("/passagens/" + city);
+  };
   return (
-    <div className={style.card}>
+    <div className={style.card} onClick={() => ticketInfo(cityName)}>
       <Image height={250} width={250} src={imgSrc} alt="a" />
       <div>
         <div className={style.date}>
@@ -15,10 +24,10 @@ const CityCard = ({ imgSrc }) => {
           <p>70,00</p>
         </div>
         <div>
-          <p>Venda no do imigrante</p>
+          <p>{cityName}</p>
         </div>
       </div>
     </div>
   );
 };
-export default CityCard;
+export default Card;

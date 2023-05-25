@@ -1,0 +1,25 @@
+.navbar,
+.content{
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 0px;
+  border-radius: var(--border-radius);
+}
+.navbar{
+  border: 1px solid black;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.content{
+  width: 100%;
+}
+.content .cards{
+  margin-top: 2vh;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 20px;
+  box-sizing: border-box;
+}

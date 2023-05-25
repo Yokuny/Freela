@@ -1,9 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import Select from "react-select";
-import style from "./citySelect.module.css";
+import style from "./cities.module.css";
 
-const CitySelect = ({ setCity, city }) => {
+const Cities = ({ setCity, city }) => {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
@@ -33,4 +33,4 @@ const CitySelect = ({ setCity, city }) => {
   );
 };
 
-export default CitySelect;
+export default Cities;

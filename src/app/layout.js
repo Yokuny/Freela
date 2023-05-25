@@ -7,8 +7,8 @@ import Footer from "/components/Footer.js";
 
 
 export const metadata = {
-  title: "Shortly",
-  description: "Generated shorten url",
+  title: "Travel",
+  description: "Find your next destination",
 };
 
 export default function RootLayout({ children }) {

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
-import CitySelect from "/components/CitySelect.js";
+import Cities from "/components/Cities.js";
 
 export default function Home() {
   const [selectedCity, setSelectedCity] = useState(null);
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div>
-        <CitySelect setCity={setSelectedCity} city={selectedCity} />
+        <Cities setCity={setSelectedCity} city={selectedCity} />
       </div>
       <div className={styles.cards}>
         <div>
