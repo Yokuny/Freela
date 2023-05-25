@@ -1,2 +1,54 @@
 .main {
+    margin-top: 8vh;
+}
+/* cards */
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.cards div{
+    width: 30%;
+    height: 30vh;
+
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.cards div p {
+    width: 75%;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  .cards div p:hover,
+  .cards div:hover {
+    background-color: rgba(0, 0, 0, 1);
+  }
+.cards div:first-child{
+    background-image: url("/build.jpg");
+    
+}
+.cards div:nth-child(2){
+    background-image: url("/ticket.jpg");
+
+}
+.cards div:last-child{
+    background-image: url("/hotel.jpg");
 }

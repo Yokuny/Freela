@@ -8,7 +8,17 @@
   align-items: center;
   justify-content: space-between;
   
+  background-color: #fff;
+  position: fixed;
+  z-index: 100;
 }
+.header{
+  top: 2vh;
+}
+.footer {
+  bottom: 2vh;
+}
+
 /* header */
 .header span{
   font-size: 1.4rem;
@@ -23,9 +33,6 @@
   font-size: 1rem;
 }
 /* footer */
-.footer {
-  margin-top: 5vh;
-}
 .footer span {
   display: flex;
   align-items: center;
@@ -33,17 +40,21 @@
   font-family: var(--font-mono);
 }
 .footer span a,
-.header a{
+.header a {
   display: flex;
   align-items: center;
-  
   padding: 5px 10px;
   border-radius: var(--border-radius);
   text-decoration: none;
   border: 1px solid transparent;
+  transition: border-color 0.4s ease;
+}
+.footer span:first-child a::before {
+  content: "2023 © ";
+  white-space: pre;
 }
 .footer span a:hover,
-.header a:hover{
+.header a:hover {
   border: 1px solid black;
   text-decoration: underline;
 }

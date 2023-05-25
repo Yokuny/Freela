@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <span>
-        <p>2023 ©</p>
         <Link href="https://github.com/Yokuny">yokuny</Link>
       </span>
       <span>
