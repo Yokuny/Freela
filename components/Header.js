@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import styles from "./layout.module.css";
 
 import { Marck_Script } from "next/font/google";
 const MarckScript = Marck_Script({
@@ -10,20 +11,22 @@ const MarckScript = Marck_Script({
   display: "swap",
 });
 
-import styles from "./layout.module.css";
-
 const Header = () => {
-  const currentPage = usePathname();
+  const router = useRouter();
+  const previousPage = () => {
+    router.back();
+  };
 
+  const currentPage = usePathname();
   const actualPage = currentPage.slice(1).toUpperCase();
 
   const homePage =
     currentPage === "/" ? (
       <></>
     ) : (
-      <Link href={"./"}>
+      <a onClick={previousPage}>
         <Image height={20} width={20} src={"/return.svg"} alt="return" />
-      </Link>
+      </a>
     );
 
   return (

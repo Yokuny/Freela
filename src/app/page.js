@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
-import CitySelect from "../../components/CitySelect";
+import CitySelect from "/components/CitySelect.js";
 
 export default function Home() {
   const [selectedCity, setSelectedCity] = useState(null);
