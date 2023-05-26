@@ -1,12 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
-import Select from "react-select";
 import style from "./cities.module.css";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Select from "react-select";
 import axios from "axios";
+import unidecode from "unidecode";
 
 const Cities = () => {
   const [city, setCity] = useState(null);
   const [cities, setCities] = useState([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     const loadCities = async () => {
@@ -21,17 +25,14 @@ const Cities = () => {
     loadCities();
   }, []);
 
-  const handleCityChange = (selectedOption) => {
-    setCity(selectedOption);
-  };
-
-  const handleCityChoice = () => {
-    console.log(city);
+  const handleCityChange = (option) => {
+    const id = option.id;
+    const city = unidecode(option.value).replace(/ /g, "-");
+    router.push(`/${city}-${id}`);
   };
 
   return (
     <Select
-      onClick={handleCityChoice}
       className={style.input}
       placeholder="Selecione a cidade destino"
       options={cities}

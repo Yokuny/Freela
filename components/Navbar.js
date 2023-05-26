@@ -2,7 +2,7 @@ import style from "./NavContent.module.css";
 
 const Navbar = () => {
   return (
-    <navbar className={style.navbar}>
+    <div className={style.navbar}>
       <h4>filtro</h4>
       <form>
         <label>
@@ -25,7 +25,7 @@ const Navbar = () => {
           <input name="price" type="range" />
         </label>
       </form>
-    </navbar>
+    </div>
   );
 };
 export default Navbar;

@@ -3,7 +3,7 @@ import style from "./NavContent.module.css";
 
 const Content = ({ title }) => {
   return (
-    <content className={style.content}>
+    <div className={style.content}>
       <h2>{title}</h2>
       <div className={style.cards}>
         <Card imgSrc={"/hotel.jpg"} />
@@ -23,7 +23,7 @@ const Content = ({ title }) => {
         <Card imgSrc={"/ticket.jpg"} />
         <Card imgSrc={"/hotel.jpg"} />
       </div>
-    </content>
+    </div>
   );
 };
 export default Content;
