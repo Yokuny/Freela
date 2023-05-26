@@ -1,15 +1,11 @@
-"use client";
-import { useState } from "react";
 import styles from "./page.module.css";
 import Cities from "/components/Cities.js";
 
 export default function Home() {
-  const [selectedCity, setSelectedCity] = useState(null);
-
   return (
     <main className={styles.main}>
       <div>
-        <Cities setCity={setSelectedCity} city={selectedCity} />
+        <Cities />
       </div>
       <div className={styles.cards}>
         <div>

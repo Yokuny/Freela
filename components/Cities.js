@@ -2,28 +2,36 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import style from "./cities.module.css";
+import axios from "axios";
 
-const Cities = ({ setCity, city }) => {
+const Cities = () => {
+  const [city, setCity] = useState(null);
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
-    //request to get cities
-    const cityList = [
-      { value: "Venda Nova", label: "Venda Nova" },
-      { value: "Pedra Azul", label: "Pedra Azul" },
-      { value: "Afonso Claudio", label: "Afon Claudio" },
-      { value: "Vitoria", label: "Vitoria" },
-    ];
+    const loadCities = async () => {
+      const cities = await axios.get("http://localhost:5000/");
 
-    setCities(cityList);
+      const cityList = cities.data.map((city) => {
+        return { value: city.nome, label: city.nome, id: city.id };
+      });
+
+      setCities(cityList);
+    };
+    loadCities();
   }, []);
 
   const handleCityChange = (selectedOption) => {
     setCity(selectedOption);
   };
 
+  const handleCityChoice = () => {
+    console.log(city);
+  };
+
   return (
     <Select
+      onClick={handleCityChoice}
       className={style.input}
       placeholder="Selecione a cidade destino"
       options={cities}
