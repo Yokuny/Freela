@@ -28,14 +28,25 @@
     margin: .5rem 0;
     flex-direction: column;
 }
-.card .date{
-    font-family: var(--font-mono);
+/* cards details */
+.card .airline{
+    font-size: .7rem;
+}
+.card .arrival{
+    font-size: .7rem;
     font-weight: 600;
 }
-.card .date:hover{
+.card .leaving{
+    font-family: var(--font-mono);
+    font-size: .9rem;
     font-weight: 800;
+    margin-bottom: 6px;
+}
+.card .leaving:hover{
+    font-weight: 400;
 }
 .card .value{
+    color: green;
     font-weight: 500;
     font-size: 0.9rem;
     margin-bottom: 6px;

@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import style from "./card.module.css";
 
@@ -16,15 +15,15 @@ const Card = ({ id, imgSrc, destination, airline, arrival, leaving, price }) => 
       <Image height={250} width={250} src={imgSrc} alt="a" />
       <div>
         <div className={style.airline}>
-          <Image height={16} width={16} src="/airplane.svg" alt="-" />
+          <Image height={12} width={12} src="/airplane.svg" alt="-" />
           <p>{airline}</p>
         </div>
-        <div className={style.date}>
-          <Image height={16} width={16} src="/calendar.svg" alt="-" />
+        <div className={style.arrival}>
+          {/* <Image height={10} width={10} src="/calendar.svg" alt="-" /> */}
           <p>{arrival}</p>
         </div>
 
-        <div className={style.date}>
+        <div className={style.leaving}>
           <Image height={16} width={16} src="/calendar.svg" alt="-" />
           <p>{leaving}</p>
         </div>

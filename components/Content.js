@@ -7,13 +7,6 @@ const Content = ({ title, data }) => {
       <h2>{title}</h2>
       <div className={style.cards}>
         {data.map((item) => {
-          cidade_destino: "Porto Alegre";
-          cidade_partida: "Rio de Janeiro";
-          companhia_aerea: "Qatar Airways";
-          hora_chegada_formatada: "07/06 03:07";
-          hora_partida_formatada: "28/05 17:47";
-          id: 87;
-          preco: "563.36";
           return (
             <Card
               key={item.id}
