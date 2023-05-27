@@ -14,7 +14,7 @@ const Cities = () => {
 
   useEffect(() => {
     const loadCities = async () => {
-      const cities = await axios.get("http://localhost:5000/");
+      const cities = await axios.get("http://localhost:5001/");
 
       const cityList = cities.data.map((city) => {
         return { value: city.nome, label: city.nome, id: city.id };
@@ -28,7 +28,7 @@ const Cities = () => {
   const handleCityChange = (option) => {
     const id = option.id;
     const city = unidecode(option.value).replace(/ /g, "-");
-    router.push(`/${city}-${id}`);
+    router.push(`/${id}|${city}`);
   };
 
   return (

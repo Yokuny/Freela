@@ -4,27 +4,36 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import style from "./card.module.css";
 
-const Card = ({ imgSrc }) => {
-  const [cityName, setCityName] = useState("Venda Nova do Imigrante");
+const Card = ({ id, imgSrc, destination, airline, arrival, leaving, price }) => {
   const router = useRouter();
 
   const ticketInfo = (city) => {
     router.push("/passagens/" + city);
   };
+
   return (
-    <div className={style.card} onClick={() => ticketInfo(cityName)}>
+    <div className={style.card} onClick={() => ticketInfo(destination)}>
       <Image height={250} width={250} src={imgSrc} alt="a" />
       <div>
+        <div className={style.airline}>
+          <Image height={16} width={16} src="/airplane.svg" alt="-" />
+          <p>{airline}</p>
+        </div>
         <div className={style.date}>
           <Image height={16} width={16} src="/calendar.svg" alt="-" />
-          <p>02/14 14:00</p>
+          <p>{arrival}</p>
+        </div>
+
+        <div className={style.date}>
+          <Image height={16} width={16} src="/calendar.svg" alt="-" />
+          <p>{leaving}</p>
         </div>
         <div className={style.value}>
           <Image height={16} width={16} src="/ticket.svg" alt="-" />
-          <p>70,00</p>
+          <p>{price}</p>
         </div>
         <div>
-          <p>{cityName}</p>
+          <p>{destination}</p>
         </div>
       </div>
     </div>

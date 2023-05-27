@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   const currentPage = usePathname();
-  const actualPage = currentPage.slice(1).toUpperCase();
+  const actualPage = currentPage.slice(3).toUpperCase().split("-").join(" ");
 
   const homePage =
     currentPage === "/" ? (
