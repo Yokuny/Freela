@@ -1,5 +1,5 @@
 "use client";
-import style from "./destino.module.css";
+import style from "./page.module.css";
 import Navbar from "/components/Navbar.js";
 import Content from "/components/Content.js";
 
@@ -14,20 +14,22 @@ const Passagens = () => {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
+    const query = `http://localhost:5001/ticket/${cityId}`;
     const loadTickets = async () => {
-      const tickets = await axios.get(`http://localhost:5001/ticket/${cityId}`);
+      const tickets = await axios.get(query);
       setTickets(tickets.data);
     };
     loadTickets();
   }, [cityId]);
 
   useEffect(() => {
-    setCityId(currentPage.slice(1, 2));
-    setCity(currentPage.slice(3).toUpperCase().split("-").join(" "));
+    const [id, cityName] = currentPage.slice(1).split("|");
+    setCityId(id);
+    setCity(cityName.toUpperCase().split("-").join(" "));
   }, [currentPage]);
 
   return (
-    <div className={style.destino}>
+    <div className={style.content}>
       <Navbar />
       <Content title={city} data={tickets} />
     </div>

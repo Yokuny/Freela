@@ -17,7 +17,16 @@ const Header = () => {
   };
 
   const currentPage = usePathname();
-  const actualPage = currentPage.slice(3).toUpperCase().split("-").join(" ");
+  let cityName = "";
+
+  if (currentPage.includes("|")) {
+    [, cityName] = currentPage.slice(1).split("|");
+  } else {
+    const routeParts = currentPage.split("/");
+    cityName = routeParts[routeParts.length - 2];
+  }
+
+  const actualPage = cityName ? cityName.toUpperCase().split("-").join(" ") : "";
 
   const homePage =
     currentPage === "/" ? (
@@ -27,6 +36,7 @@ const Header = () => {
         <Image height={20} width={20} src={"/return.svg"} alt="return" />
       </a>
     );
+
 
   return (
     <>

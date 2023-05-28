@@ -1,41 +1,67 @@
 "use client";
 import style from "./city.module.css";
 import React from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 function Destino() {
   const currentPage = usePathname();
-  const cityName = currentPage.split("/");
+  const router = useRouter();
+  const [ticketId, setTicketId] = useState();
+  const [ticket, setTicket] = useState([]);
 
+  useEffect(() => {
+    const query = `http://localhost:5001/ticket/details/${ticketId}`;
+    const loadCities = async () => {
+      const ticket = await axios.get(query);
+      setTicket(ticket.data);
+    };
+    loadCities();
+  }, [ticketId]);
+
+  useEffect(() => {
+    const path = currentPage.split("/");
+    setTicketId(path[path.length - 1]);
+  }, [currentPage]);
+
+  const backBtn = () => router.back();
+  const showHotels = () => {
+    console.log("äsasdasd");
+  };
   return (
-    <div className={style.city}>
-      <h1>Passagem para {cityName[cityName.length - 1].toUpperCase()}</h1>
-      <div className={style.details}>
-        <span>
-          <p>Cidade de destino:</p>
-          <p>Afonso Claudio</p>
-        </span>
-        <span>
-          <p>Cidade de origem:</p>
-          <p>Venda Nova do imigrante</p>
-        </span>
-        <span>
-          <p>Companhia aeria:</p>
-          <p>Itaisul jazil</p>
-        </span>
-        <span>
-          <p>Horario de partida:</p>
-          <p>29/04 15h</p>
-        </span>
-        <span>
-          <p>Horario previsto de chegada:</p>
-          <p>30/04 16h</p>
-        </span>
-        <span>
-          <p>Preço da passagem:</p>
-          <p>700 R$</p>
-        </span>
-      </div>
+    <div className={style.details}>
+      <span>
+        <p>Cidade de destino:</p>
+        <p>{ticket.destino}</p>
+      </span>
+      <span>
+        <p>Cidade de origem:</p>
+        <p>{ticket.origem}</p>
+      </span>
+      <span>
+        <p>Companhia aérea:</p>
+        <p>{ticket.companhia}</p>
+      </span>
+      <span>
+        <p>Horário de partida:</p>
+        <p>{ticket.horapartida}</p>
+      </span>
+      <span>
+        <p>Horário previsto de chegada:</p>
+        <p>{ticket.horachegada}</p>
+      </span>
+      <span>
+        <p>Preço da passagem:</p>
+        <p className={style.price}>{ticket.preco}</p>
+      </span>
+      <a onClick={backBtn} className={style.return}>
+        Retornar
+      </a>
+      <a onClick={showHotels} className={style.confirm}>
+        Confirmar
+      </a>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 .details{
   margin-top: 2vh;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -7,4 +8,42 @@
 .details span{
   display: flex;
   justify-content: space-between;
+}
+.price:before{
+  font-size: .8rem;
+  content: "R$ ";
+}
+.details span p:nth-child(1){
+  font-size: .8rem;
+  font-weight: 600;
+}
+.details span p:nth-child(2){
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 500;
+}
+/* buttons */
+.return, .confirm{
+  margin-top: 5px;
+  padding: 10px 10px;
+  border: 1px solid black;
+  background-color: #ffffffcc;
+  border-radius: var(--border-radius);
+  transition: background-color 0.4s ease;
+}
+.confirm{
+  background-color: #000;
+  color: #fff;
+}
+.return:hover, .confirm:hover {
+  box-shadow: 0px 0px 10px 0px #00000033;
+  border: 1px solid black;
+}
+.return:hover{
+  background-color: #000;
+  color: #fff;
+}
+.confirm:hover {
+  background-color: #ffffffcc;
+  color: #000;
 }

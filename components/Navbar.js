@@ -12,7 +12,7 @@ const Navbar = () => {
 
         <label>
           Distancia:
-          <input name="Distance" type="range" />
+          <input name="distance" type="range" />
         </label>
 
         <label>

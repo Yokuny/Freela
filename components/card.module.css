@@ -46,7 +46,7 @@
     font-weight: 400;
 }
 .card .value{
-    color: green;
+    color: rgb(122, 182, 32);
     font-weight: 500;
     font-size: 0.9rem;
     margin-bottom: 6px;

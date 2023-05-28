@@ -2,16 +2,18 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import style from "./card.module.css";
+import unidecode from "unidecode";
 
 const Card = ({ id, imgSrc, destination, airline, arrival, leaving, price }) => {
   const router = useRouter();
 
-  const ticketInfo = (city) => {
-    router.push("/passagens/" + city);
+  const ticketInfo = () => {
+    const city = unidecode(destination).replace(/ /g, "-");
+    router.push(`/${city}/${id}`);
   };
 
   return (
-    <div className={style.card} onClick={() => ticketInfo(destination)}>
+    <div className={style.card} onClick={() => ticketInfo()}>
       <Image height={250} width={250} src={imgSrc} alt="a" />
       <div>
         <div className={style.airline}>
