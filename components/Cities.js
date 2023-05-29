@@ -13,10 +13,9 @@ const Cities = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const query = "http://localhost:5001/";
     const loadCities = async () => {
       try {
-        const cities = await axios.get(query);
+        const cities = await axios.get(process.env.URL);
 
         const cityList = cities.data.map((city) => {
           return { value: city.nome, label: city.nome, id: city.id };

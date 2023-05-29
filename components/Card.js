@@ -8,7 +8,7 @@ const Card = ({ id, imgSrc, destination, airline, arrival, leaving, price, query
   const router = useRouter();
 
   const search = () => {
-    if (queryType == "hostings") router.push(`/hospedagens/info/${id}`);
+    if (queryType == "hostings") router.push(`/hospedagens/details/${id}`);
     if (queryType == "tickets") {
       const city = unidecode(destination).replace(/ /g, "-");
       router.push(`/${city}/${id}`);

@@ -15,17 +15,19 @@ const Hostings = ({ params }) => {
   useEffect(() => {
     const [pathId, cityName] = currentPage.slice(1).split("|");
     const [, id] = pathId.split("/");
+    console.log("id");
+    console.log(id);
     setCityId(id);
     setTitle(cityName.toUpperCase().split("-").join(" "));
   }, [currentPage]);
 
-  // request com o id
   useEffect(() => {
-    const query = `http://localhost:5001/hospedagens/${cityId}`;
+    const query = `${process.env.URL}hospedagens/${cityId}`;
     const loadHostings = async () => {
       try {
         const hostings = await axios.get(query);
 
+        console.log("hostings");
         console.log(hostings);
 
         setHostings(hostings.data);

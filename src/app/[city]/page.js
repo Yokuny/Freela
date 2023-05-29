@@ -14,7 +14,7 @@ const Tickets = () => {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
-    const query = `http://localhost:5001/ticket/${cityId}`;
+    const query = `${process.env.URL}ticket/${cityId}`;
     const loadTickets = async () => {
       try {
         const tickets = await axios.get(query);

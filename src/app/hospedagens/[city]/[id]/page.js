@@ -15,7 +15,7 @@ function Destino() {
   console.log(ticket);
 
   useEffect(() => {
-    const query = `http://localhost:5001/hospedagens/details/${ticketId}`;
+    const query = `${process.env.URL}hospedagens/details/${ticketId}`;
     const loadTicket = async () => {
       try {
         const ticket = await axios.get(query);
