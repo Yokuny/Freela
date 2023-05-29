@@ -1,7 +1,7 @@
 import Card from "./Card.js";
 import style from "./NavContent.module.css";
 
-const Content = ({ title, data }) => {
+const Content = ({ title, data, type }) => {
   return (
     <div className={style.content}>
       <h2>{title}</h2>
@@ -17,6 +17,7 @@ const Content = ({ title, data }) => {
               arrival={item.hora_chegada_formatada}
               leaving={item.hora_partida_formatada}
               price={item.preco}
+              queryType={type}
             />
           );
         })}

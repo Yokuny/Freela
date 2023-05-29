@@ -4,12 +4,10 @@ import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import unidecode from "unidecode";
 
 function Destino() {
   const currentPage = usePathname();
   const router = useRouter();
-
   const [ticketId, setTicketId] = useState();
   const [ticket, setTicket] = useState([]);
 
@@ -17,7 +15,7 @@ function Destino() {
   console.log(ticket);
 
   useEffect(() => {
-    const query = `http://localhost:5001/ticket/details/${ticketId}`;
+    const query = `http://localhost:5001/hospedagens/details/${ticketId}`;
     const loadTicket = async () => {
       try {
         const ticket = await axios.get(query);
@@ -37,8 +35,7 @@ function Destino() {
   const backBtn = () => router.back();
   const showHotels = () => {
     //mudar a query acrescentando o id da cidade
-    const city = unidecode(ticket.destino).replace(/ /g, "-");
-    router.push(`/hospedagens/10|${city}`);
+    router.push(`/hospedagens/${ticket.destino}`);
   };
   return (
     <div className={style.details}>

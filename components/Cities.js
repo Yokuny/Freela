@@ -15,18 +15,21 @@ const Cities = () => {
   useEffect(() => {
     const query = "http://localhost:5001/";
     const loadCities = async () => {
-      const cities = await axios.get(query);
+      try {
+        const cities = await axios.get(query);
 
-      const cityList = cities.data.map((city) => {
-        return { value: city.nome, label: city.nome, id: city.id };
-      });
-
-      setCities(cityList);
+        const cityList = cities.data.map((city) => {
+          return { value: city.nome, label: city.nome, id: city.id };
+        });
+        setCities(cityList);
+      } catch (err) {
+        console.log(err);
+      }
     };
     loadCities();
   }, []);
 
-  const handleCityChange = (option) => {
+  const handleChoice = (option) => {
     const id = option.id;
     const city = unidecode(option.value).replace(/ /g, "-");
     router.push(`/${id}|${city}`);
@@ -38,7 +41,7 @@ const Cities = () => {
       placeholder="Selecione a cidade destino"
       options={cities}
       value={city}
-      onChange={handleCityChange}
+      onChange={handleChoice}
     />
   );
 };

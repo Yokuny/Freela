@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Passagens = () => {
+const Tickets = () => {
   const currentPage = usePathname();
   const [cityId, setCityId] = useState(0);
   const [city, setCity] = useState("");
@@ -16,8 +16,12 @@ const Passagens = () => {
   useEffect(() => {
     const query = `http://localhost:5001/ticket/${cityId}`;
     const loadTickets = async () => {
-      const tickets = await axios.get(query);
-      setTickets(tickets.data);
+      try {
+        const tickets = await axios.get(query);
+        setTickets(tickets.data);
+      } catch (err) {
+        console.log(err);
+      }
     };
     loadTickets();
   }, [cityId]);
@@ -31,8 +35,8 @@ const Passagens = () => {
   return (
     <div className={style.content}>
       <Navbar />
-      <Content title={city} data={tickets} />
+      <Content title={city} data={tickets} type="tickets" />
     </div>
   );
 };
-export default Passagens;
+export default Tickets;

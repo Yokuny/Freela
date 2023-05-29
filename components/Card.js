@@ -4,16 +4,19 @@ import { useRouter } from "next/navigation";
 import style from "./card.module.css";
 import unidecode from "unidecode";
 
-const Card = ({ id, imgSrc, destination, airline, arrival, leaving, price }) => {
+const Card = ({ id, imgSrc, destination, airline, arrival, leaving, price, queryType }) => {
   const router = useRouter();
 
-  const ticketInfo = () => {
-    const city = unidecode(destination).replace(/ /g, "-");
-    router.push(`/${city}/${id}`);
+  const search = () => {
+    if (queryType == "hostings") router.push(`/hospedagens/info/${id}`);
+    if (queryType == "tickets") {
+      const city = unidecode(destination).replace(/ /g, "-");
+      router.push(`/${city}/${id}`);
+    }
   };
 
   return (
-    <div className={style.card} onClick={() => ticketInfo()}>
+    <div className={style.card} onClick={() => search()}>
       <Image height={250} width={250} src={imgSrc} alt="a" />
       <div>
         <div className={style.airline}>
